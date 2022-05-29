@@ -86,4 +86,30 @@ const loginInput = prompt("Введите свой логин:");
 //     console.log('Я Вас не знаю!')
 // }
 
+switch (loginInput) {
+    case 'admin':
+        const passwordInput = prompt("Введіть пароль:");
+        switch (passwordInput) {
+            case 'Я головний':
+                console.log("Вітаю!");
+                break;
+            
+            case null:
+                console.log("Відміна");
+                break;
+            
+            default:
+                console.log("Невірний пароль!");
+                break;
+        }
+        console.log("Введіть пароль:");
+       break;
 
+    case null:
+        console.log('Відміна');
+        break;
+    
+    default:
+        console.log('Я Вас не знаю!');
+        break;
+}
