@@ -39,13 +39,51 @@
 // Напишите цикл, который выводит в консоль
 //числа от max до min по убыванию
 // Додайте все четные числа от min до max
-const max = 50;
-const min = 23;
-let total = 0;
-for (let i = max; i >= min; i -= 1) {
-  if (i % 2 !== 0) {
-    continue;
-  }
-  total += i;
-}
-console.log(total);
+// const max = 50;
+// const min = 23;
+// let total = 0;
+// for (let i = max; i >= min; i -= 1) {
+//   if (i % 2 !== 0) {
+//     continue;
+//   }
+//   total += i;
+// }
+// console.log(total);
+
+
+//task4 
+
+//Напишите код, который будет спрашивать
+//логин с помощью prompt и логировать результат
+//в консоль браузера
+
+//Если посетитель вводит "Админ",
+//то prompt запрашивает пароль.
+//Если ничего не ввели или нажата клавиша Esc
+//вывести стороку "Отменено"
+//В противном случае вывксти строку "Я вас не знаю"
+
+//Пароль проверять так:
+//Если введён пароль "Я главный",
+//то вывести строку "Здравствуйте!"
+//иначе выводить строку "Неверный пароль!"
+
+const loginInput = prompt("Введите свой логин:");
+
+// if (loginInput === "admin" ){
+// const passwordInput = prompt("Введіть пароль:")
+// if (passwordInput === "Я головний"){
+//     console.log("Вітаю!")
+// } else if (passwordInput === null ){
+// console.log("Відміна") 
+// } else {
+//     console.log("Невірний пароль!")
+// }
+// } else if (loginInput === null){
+
+//  console.log('Відміна');
+// } else {
+//     console.log('Я Вас не знаю!')
+// }
+
+
