@@ -196,31 +196,131 @@
 //Добавь проверку что функция получает массив
 
 
-const numbers = [5, 35, 56, 12, 24, 7, 80, 3];
+// const numbers = [5, 35, 56, 12, 24, 7, 80, 3];
 
-function findSmallerNumber(numbers) {
-  if (!Array.isArray(numbers)) {
-    return "not array";
- };
+// function findSmallerNumber(numbers) {
+//   if (!Array.isArray(numbers)) {
+//     return "not array";
+//  };
 
-    // return Math.min(...numbers);
-  let smallIsNumber = numbers[0];
-  // for (let i = 0; i < numbers.length; i += 1) {
+//     // return Math.min(...numbers);
+//   let smallIsNumber = numbers[0];
+//   // for (let i = 0; i < numbers.length; i += 1) {
        
-  //   if (numbers[i] < smallIsNumber) {
-  //     smallIsNumber = numbers[i];
-  //   }
-  // }
-  for (let number of numbers) {
-    if (number < smallIsNumber) {
-      smallIsNumber = number;
-  }
-  }
+//   //   if (numbers[i] < smallIsNumber) {
+//   //     smallIsNumber = numbers[i];
+//   //   }
+//   // }
+//   for (let number of numbers) {
+//     if (number < smallIsNumber) {
+//       smallIsNumber = number;
+//   }
+//   }
   
-  return smallIsNumber;
+//   return smallIsNumber;
+// }
+
+
+// console.log(findSmallerNumber(numbers));
+
+const people = [
+  {
+    name: 'Alex',
+    know: ['Alex', 'Jhon'],
+  },
+  {
+    name: 'Jhon',
+    know: [],
+  },
+  {
+    name: 'Eva',
+    know: ['Alex', 'Jhon'],
+  },
+  {
+    name: 'Ivan',
+    know: ['Jhon', 'Eva'],
+  },
+];
+//нарцис  'Jhon'
+
+const people1 = [
+  {
+    name: 'Alex',
+    know: ['Alex', 'Jhon'],
+  },
+  {
+    name: 'Jhon',
+    know: [],
+  },
+  {
+    name: 'Eva',
+    know: [],
+  },
+  {
+    name: 'Ivan',
+    know: ['Jhon', 'Eva'],
+  },
+];
+//немає нарциса'
+
+const people3 = [
+  {
+    name: 'Alex',
+    know: ['Alex', 'Eva'],
+  },
+  {
+    name: 'Jhon',
+    know: [],
+  },
+  {
+    name: 'Eva',
+    know: ['Alex', 'Jhon'],
+  },
+  {
+    name: 'Ivan',
+    know: ['Jhon', 'Eva'],
+  },
+];
+const people4 = [
+  {
+    name: 'Alex',
+    know: ['Alex', 'Jhon'],
+  },
+  {
+    name: 'Jhon',
+    know: ['Eva'],
+  },
+  {
+    name: 'Eva',
+    know: ['Alex', 'Jhon'],
+  },
+  {
+    name: 'Ivan',
+    know: ['Jhon', 'Eva'],
+  },
+];
+//немає нарциса'
+// Нарциса знають всі, нарцис незнає нікого
+
+// немає нарциса
+
+const nar = function (array) {
+  let nameNar = ''
+  for (let people of array) {
+    if (people.know.length === 0) {
+      nameNar = people.name
+    }
+  }
+  if (nameNar === '') { return 'Немає нарциса' }
+  
+
+  for (let people of array) {
+    if(people.name === nameNar) {continue}
+    if (!people.know.includes(nameNar)) { return 'Немає нарциса' }
+  }
+
+  return `Нарцис ${nameNar}`;
 }
 
-
-console.log(findSmallerNumber(numbers));
-
+console.log(nar(people4))
 
