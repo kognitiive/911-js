@@ -121,10 +121,48 @@
 //кнопку Cancel, показать alert со строкой "Общая сумма введенных чисел равна [число]."
 //Делать проверку,что пользователь ввел именно число,
 //а не произвольный набор символов, не нужно.
-let userInput = prompt("введіть число");
-let total = 0;
-while (userInput) {
-  total += Number(userInput);
-  userInput = prompt("введіть число");
-}
-console.log(total);
+// let userInput = prompt("введіть число");
+// let total = 0;
+// while (userInput) {
+//   total += Number(userInput);
+//   userInput = prompt("введіть число");
+// }
+// console.log(total);
+
+//Создайте массив styles с элементами «Джаз» и «Блюз».
+//Добавьте «Рок-н-ролл» в конец.
+//Замените значение «Блюз» на «Классика».
+//Удалите первый элемент массива и выведите его в консоль.
+//Вставьте «Рэп» и «Регги» в начало массива.
+
+const styles = ['Джаз', 'Блюз']
+
+
+console.log(styles.push('Рок-н-ролл'))
+// console.log(styles)
+
+// styles[1] = 'Классика';
+// console.log(styles)
+const index = styles.indexOf('Блюз')
+
+styles[index] = 'Классика';
+
+// console.log(styles)
+
+// styles.shift()
+
+console.log(styles.shift())
+
+
+
+// styles.unshift('Рэп', 'Регги')
+
+styles.splice(0, 0, 'Рэп', 'Регги')
+
+console.log(styles)
+
+
+
+
+
+
