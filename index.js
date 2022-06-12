@@ -160,16 +160,33 @@
 //Напишите функцию min(a, b), которая возвращает
 //меньшее из чисел a, b
 //нужно добавить проверку, что функция получает числа
-function min(a, b) {
-  if (typeof a !== "number" || typeof b !== "number") {
-    return " NaN";
+// function min(a, b) {
+//   if (typeof a !== "number" || typeof b !== "number") {
+//     return " NaN";
+//   }
+//   //   return Math.min(a, b);
+//   //   if (a < b) {
+//   //     return a;
+//   //   } else {
+//   //     return b;
+//   //   }
+//   return a < b ? a : b;
+// }
+// console.log(min("a", 20));
+
+//Напишите функцию logItems(array) которая принимает
+//массив и использует цикл for, который для каждого
+//элемента массива будет выводить сообщение в формате
+//<номер элемента> - <значение элемента>
+//Нумерация элементов должна начинаться с 1.
+//['Джаз', 'Блюз', 'Рок-н-ролл', 'Регги', 'Рэп']
+
+function logItems(array) {
+  for ( let i = 0; i < array.length; i += 1){
+    // console.log(array[i]);
+    // console.log(i)
+    console.log(`${i + 1} - ${array[i]}`)
   }
-  //   return Math.min(a, b);
-  //   if (a < b) {
-  //     return a;
-  //   } else {
-  //     return b;
-  //   }
-  return a < b ? a : b;
+
 }
-console.log(min("a", 20));
+logItems(['Джаз', 'Блюз', 'Рок-н-ролл', 'Регги', 'Рэп'])
