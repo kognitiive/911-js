@@ -135,34 +135,41 @@
 //Удалите первый элемент массива и выведите его в консоль.
 //Вставьте «Рэп» и «Регги» в начало массива.
 
-const styles = ['Джаз', 'Блюз']
+// const styles = ['Джаз', 'Блюз']
 
+// console.log(styles.push('Рок-н-ролл'))
+// // console.log(styles)
 
-console.log(styles.push('Рок-н-ролл'))
+// // styles[1] = 'Классика';
+// // console.log(styles)
+// const index = styles.indexOf('Блюз')
+
+// styles[index] = 'Классика';
+
+// // console.log(styles)
+
+// // styles.shift()
+
+// console.log(styles.shift())
+
+// // styles.unshift('Рэп', 'Регги')
+
+// styles.splice(0, 0, 'Рэп', 'Регги')
+
 // console.log(styles)
-
-// styles[1] = 'Классика';
-// console.log(styles)
-const index = styles.indexOf('Блюз')
-
-styles[index] = 'Классика';
-
-// console.log(styles)
-
-// styles.shift()
-
-console.log(styles.shift())
-
-
-
-// styles.unshift('Рэп', 'Регги')
-
-styles.splice(0, 0, 'Рэп', 'Регги')
-
-console.log(styles)
-
-
-
-
-
-
+//Напишите функцию min(a, b), которая возвращает
+//меньшее из чисел a, b
+//нужно добавить проверку, что функция получает числа
+function min(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    return " NaN";
+  }
+  //   return Math.min(a, b);
+  //   if (a < b) {
+  //     return a;
+  //   } else {
+  //     return b;
+  //   }
+  return a < b ? a : b;
+}
+console.log(min("a", 20));
