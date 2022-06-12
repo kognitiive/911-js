@@ -322,5 +322,31 @@ const nar = function (array) {
   return `Нарцис ${nameNar}`;
 }
 
-console.log(nar(people4))
+// console.log(nar(people4))
 
+
+//Напишите функцию findTheColor()
+//которая принимает название цвета
+//определяет его наличие в массиве
+//если цвет есть, устанавливает его как фон документа
+//если цвета нет выводит console.error('Такой цвет не найден');
+//и устанавливает цвет документа красный
+// document.body.style.background = 'red';
+
+const colors = ['blue', 'yellow', 'olive', 'fuchsia', 'lime', 'aqua', 'maroon']
+
+function findTheColor(colors, color) {
+  // if (colors.includes(color)) {
+  //   document.body.style.background = color
+  // } else {
+  //   document.body.style.background = 'red'
+  // console.error('Такой цвет не найден')}
+  
+  const inArray = colors.includes(color)
+  document.body.style.background = inArray ? color : 'red'
+  if (!inArray) {
+    console.error('Такой цвет не найден')
+  }
+}
+
+findTheColor(colors, 'lime')
