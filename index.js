@@ -221,82 +221,84 @@
 
 // console.log(findSmallerNumber(numbers));
 
-// const people = [
-//   {
-//     name: "Alex",
-//     know: ["Alex", "Jhon"],
-//   },
-//   {
-//     name: "Jhon",
-//     know: [],
-//   },
-//   {
-//     name: "Eva",
-//     know: ["Alex", "Jhon"],
-//   },
-//   {
-//     name: "Ivan",
-//     know: ["Jhon", "Eva"],
-//   },
-// ];
-// //нарцис  'Jhon'
+const people = [
+  {
+    name: "Alex",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Jhon",
+    know: [],
+  },
+  {
+    name: "Eva",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Ivan",
+    know: ["Jhon", "Eva"],
+  },
+];
+//нарцис  'Jhon'
 
-// const people1 = [
-//   {
-//     name: "Alex",
-//     know: ["Alex", "Jhon"],
-//   },
-//   {
-//     name: "Jhon",
-//     know: [],
-//   },
-//   {
-//     name: "Eva",
-//     know: [],
-//   },
-//   {
-//     name: "Ivan",
-//     know: ["Jhon", "Eva"],
-//   },
-// ];
-// //немає нарциса'
+const people1 = [
+  {
+    name: "Alex",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Jhon",
+    know: [],
+  },
+  {
+    name: "Eva",
+    know: [],
+  },
+  {
+    name: "Ivan",
+    know: ["Jhon", "Eva"],
+  },
+];
+//немає нарциса'
 
-// const people3 = [
-//   {
-//     name: "Alex",
-//     know: ["Alex", "Eva"],
-//   },
-//   {
-//     name: "Jhon",
-//     know: [],
-//   },
-//   {
-//     name: "Eva",
-//     know: ["Alex", "Jhon"],
-//   },
-//   {
-//     name: "Ivan",
-//     know: ["Jhon", "Eva"],
-//   },
-// ];
-// const people4 = [
-//   {
-//     name: "Alex",
-//     know: ["Alex", "Jhon"],
-//   },
-//   {
-//     name: "Jhon",
-//     know: ["Eva"],
-//   },
-//   {
-//     name: "Eva",
-//     know: ["Alex", "Jhon"],
-//   },
-//   {
-//     name: "Ivan",
-//     know: ["Jhon", "Eva"],
-//   },
-// ];
+const people3 = [
+  {
+    name: "Alex",
+    know: ["Alex", "Eva"],
+  },
+  {
+    name: "Jhon",
+    know: [],
+  },
+  {
+    name: "Eva",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Ivan",
+    know: ["Jhon", "Eva"],
+  },
+];
+const people4 = [
+  {
+    name: "Alex",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Jhon",
+    know: ["Eva"],
+  },
+  {
+    name: "Eva",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Ivan",
+    know: ["Jhon", "Eva"],
+  },
+];
+
+
 //немає нарциса'
 // Нарциса знають всі, нарцис незнає нікого
 
@@ -327,6 +329,36 @@
 
 // console.log(nar(people4))
 
+
+const findNar = function (array) {
+  let nameNar = "";
+  // for (let people of array) {
+  //   if (people.know.length === 0) {
+  //     nameNar = people.name;
+  // //   }
+  // }
+  // if (nameNar === "") {
+  //   return "Немає нарциса";
+  // }
+
+  let nar = array.find( people => people.know.length === 0);
+
+if (nar === undefined){
+  return `Нарцис немає`;
+}
+  const everyNowNar = array.every(people => { 
+    if (people.name === nar.name){
+      return true;
+    }
+    return people.know.includes(nar.name)})
+
+  if (everyNowNar){
+    return `Нарцис ${nar.name}`;
+  }
+
+  return `Нарцис немає`;
+};
+console.log(findNar(people4))
 //Напишите функцию findTheColor()
 //которая принимает название цвета
 //определяет его наличие в массиве
@@ -353,88 +385,88 @@
 
 // findTheColor(colors, 'lime')
 
-const vehicles = [
-  {
-    make: "Honda",
-    model: "CR-V",
-    type: "suv",
-    amount: 14,
-    price: 24045,
-    onSale: true,
-  },
-  {
-    make: "Honda",
-    model: "Accord",
-    type: "sedan",
-    amount: 2,
-    price: 22455,
-    onSale: true,
-  },
-  {
-    make: "Mazda",
-    model: "Mazda 6",
-    type: "sedan",
-    amount: 8,
-    price: 24195,
-    onSale: false,
-  },
-  {
-    make: "Mazda",
-    model: "CX-9",
-    type: "suv",
-    amount: 7,
-    price: 31520,
-    onSale: true,
-  },
-  {
-    make: "Toyota",
-    model: "4Runner",
-    type: "suv",
-    amount: 19,
-    price: 34210,
-    onSale: false,
-  },
-  {
-    make: "Toyota",
-    model: "Sequoia",
-    type: "suv",
-    amount: 16,
-    price: 45560,
-    onSale: false,
-  },
-  {
-    make: "Toyota",
-    model: "Tacoma",
-    type: "truck",
-    amount: 4,
-    price: 24320,
-    onSale: true,
-  },
-  {
-    make: "Ford",
-    model: "F-150",
-    type: "truck",
-    amount: 11,
-    price: 27110,
-    onSale: true,
-  },
-  {
-    make: "Ford",
-    model: "Fusion",
-    type: "sedan",
-    amount: 13,
-    price: 22120,
-    onSale: true,
-  },
-  {
-    make: "Ford",
-    model: "Explorer",
-    type: "suv",
-    amount: 6,
-    price: 31660,
-    onSale: false,
-  },
-];
+// const vehicles = [
+//   {
+//     make: "Honda",
+//     model: "CR-V",
+//     type: "suv",
+//     amount: 14,
+//     price: 24045,
+//     onSale: true,
+//   },
+//   {
+//     make: "Honda",
+//     model: "Accord",
+//     type: "sedan",
+//     amount: 2,
+//     price: 22455,
+//     onSale: true,
+//   },
+//   {
+//     make: "Mazda",
+//     model: "Mazda 6",
+//     type: "sedan",
+//     amount: 8,
+//     price: 24195,
+//     onSale: false,
+//   },
+//   {
+//     make: "Mazda",
+//     model: "CX-9",
+//     type: "suv",
+//     amount: 7,
+//     price: 31520,
+//     onSale: true,
+//   },
+//   {
+//     make: "Toyota",
+//     model: "4Runner",
+//     type: "suv",
+//     amount: 19,
+//     price: 34210,
+//     onSale: false,
+//   },
+//   {
+//     make: "Toyota",
+//     model: "Sequoia",
+//     type: "suv",
+//     amount: 16,
+//     price: 45560,
+//     onSale: false,
+//   },
+//   {
+//     make: "Toyota",
+//     model: "Tacoma",
+//     type: "truck",
+//     amount: 4,
+//     price: 24320,
+//     onSale: true,
+//   },
+//   {
+//     make: "Ford",
+//     model: "F-150",
+//     type: "truck",
+//     amount: 11,
+//     price: 27110,
+//     onSale: true,
+//   },
+//   {
+//     make: "Ford",
+//     model: "Fusion",
+//     type: "sedan",
+//     amount: 13,
+//     price: 22120,
+//     onSale: true,
+//   },
+//   {
+//     make: "Ford",
+//     model: "Explorer",
+//     type: "suv",
+//     amount: 6,
+//     price: 31660,
+//     onSale: false,
+//   },
+// ];
 
 //1.Реализовать фильтер по свойству amount и получить
 //только название модели
@@ -464,21 +496,21 @@ const vehicles = [
 
 // console.log(getAvailableCarNames(vehicles, 10))
 
-const getAvailableCarNames = function (cars, amountThreshold) {
-  // return cars.reduce((acc, car) => {
-  //   if (car.amount > amountThreshold) {
-  //     acc.push(car.model);
-  //   }
-  //   return acc;
-  // }, []);
+// const getAvailableCarNames = function (cars, amountThreshold) {
+//   // return cars.reduce((acc, car) => {
+//   //   if (car.amount > amountThreshold) {
+//   //     acc.push(car.model);
+//   //   }
+//   //   return acc;
+//   // }, []);
 
-  return cars.reduce((acc, car) => {
-    console.log(acc);
-    if (car.amount > amountThreshold) {
-      return [...acc, car.model];
-    }
-    return acc;
-  }, []);
-};
+//   return cars.reduce((acc, car) => {
+//     console.log(acc);
+//     if (car.amount > amountThreshold) {
+//       return [...acc, car.model];
+//     }
+//     return acc;
+//   }, []);
+// };
 
-console.log(getAvailableCarNames(vehicles, 10));
+// console.log(getAvailableCarNames(vehicles, 10));
