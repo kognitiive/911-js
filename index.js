@@ -195,7 +195,6 @@
 //которая ищет самое маленькое число в массиве
 //Добавь проверку что функция получает массив
 
-
 // const numbers = [5, 35, 56, 12, 24, 7, 80, 3];
 
 // function findSmallerNumber(numbers) {
@@ -206,7 +205,7 @@
 //     // return Math.min(...numbers);
 //   let smallIsNumber = numbers[0];
 //   // for (let i = 0; i < numbers.length; i += 1) {
-       
+
 //   //   if (numbers[i] < smallIsNumber) {
 //   //     smallIsNumber = numbers[i];
 //   //   }
@@ -216,114 +215,117 @@
 //       smallIsNumber = number;
 //   }
 //   }
-  
+
 //   return smallIsNumber;
 // }
 
-
 // console.log(findSmallerNumber(numbers));
 
-const people = [
-  {
-    name: 'Alex',
-    know: ['Alex', 'Jhon'],
-  },
-  {
-    name: 'Jhon',
-    know: [],
-  },
-  {
-    name: 'Eva',
-    know: ['Alex', 'Jhon'],
-  },
-  {
-    name: 'Ivan',
-    know: ['Jhon', 'Eva'],
-  },
-];
-//нарцис  'Jhon'
+// const people = [
+//   {
+//     name: "Alex",
+//     know: ["Alex", "Jhon"],
+//   },
+//   {
+//     name: "Jhon",
+//     know: [],
+//   },
+//   {
+//     name: "Eva",
+//     know: ["Alex", "Jhon"],
+//   },
+//   {
+//     name: "Ivan",
+//     know: ["Jhon", "Eva"],
+//   },
+// ];
+// //нарцис  'Jhon'
 
-const people1 = [
-  {
-    name: 'Alex',
-    know: ['Alex', 'Jhon'],
-  },
-  {
-    name: 'Jhon',
-    know: [],
-  },
-  {
-    name: 'Eva',
-    know: [],
-  },
-  {
-    name: 'Ivan',
-    know: ['Jhon', 'Eva'],
-  },
-];
-//немає нарциса'
+// const people1 = [
+//   {
+//     name: "Alex",
+//     know: ["Alex", "Jhon"],
+//   },
+//   {
+//     name: "Jhon",
+//     know: [],
+//   },
+//   {
+//     name: "Eva",
+//     know: [],
+//   },
+//   {
+//     name: "Ivan",
+//     know: ["Jhon", "Eva"],
+//   },
+// ];
+// //немає нарциса'
 
-const people3 = [
-  {
-    name: 'Alex',
-    know: ['Alex', 'Eva'],
-  },
-  {
-    name: 'Jhon',
-    know: [],
-  },
-  {
-    name: 'Eva',
-    know: ['Alex', 'Jhon'],
-  },
-  {
-    name: 'Ivan',
-    know: ['Jhon', 'Eva'],
-  },
-];
-const people4 = [
-  {
-    name: 'Alex',
-    know: ['Alex', 'Jhon'],
-  },
-  {
-    name: 'Jhon',
-    know: ['Eva'],
-  },
-  {
-    name: 'Eva',
-    know: ['Alex', 'Jhon'],
-  },
-  {
-    name: 'Ivan',
-    know: ['Jhon', 'Eva'],
-  },
-];
+// const people3 = [
+//   {
+//     name: "Alex",
+//     know: ["Alex", "Eva"],
+//   },
+//   {
+//     name: "Jhon",
+//     know: [],
+//   },
+//   {
+//     name: "Eva",
+//     know: ["Alex", "Jhon"],
+//   },
+//   {
+//     name: "Ivan",
+//     know: ["Jhon", "Eva"],
+//   },
+// ];
+// const people4 = [
+//   {
+//     name: "Alex",
+//     know: ["Alex", "Jhon"],
+//   },
+//   {
+//     name: "Jhon",
+//     know: ["Eva"],
+//   },
+//   {
+//     name: "Eva",
+//     know: ["Alex", "Jhon"],
+//   },
+//   {
+//     name: "Ivan",
+//     know: ["Jhon", "Eva"],
+//   },
+// ];
 //немає нарциса'
 // Нарциса знають всі, нарцис незнає нікого
 
 // немає нарциса
 
-const nar = function (array) {
-  let nameNar = ''
-  for (let people of array) {
-    if (people.know.length === 0) {
-      nameNar = people.name
-    }
-  }
-  if (nameNar === '') { return 'Немає нарциса' }
-  
+// const nar = function (array) {
+//   let nameNar = "";
+//   for (let people of array) {
+//     if (people.know.length === 0) {
+//       nameNar = people.name;
+//     }
+//   }
+//   if (nameNar === "") {
+//     return "Немає нарциса";
+//   }
 
-  for (let people of array) {
-    if(people.name === nameNar) {continue}
-    if (!people.know.includes(nameNar)) { return 'Немає нарциса' }
-  }
+//   for (let people of array) {
+//     if (people.name === nameNar) {
+//       continue;
+//     }
+//     if (!people.know.includes(nameNar)) {
+//       return "Немає нарциса";
+//     }
+//   }
 
-  return `Нарцис ${nameNar}`;
-}
+//   return `Нарцис ${nameNar}`;
+// };
 
 // console.log(nar(people4))
-
 
 //Напишите функцию findTheColor()
 //которая принимает название цвета
@@ -341,7 +343,7 @@ const nar = function (array) {
 //   // } else {
 //   //   document.body.style.background = 'red'
 //   // console.error('Такой цвет не найден')}
-  
+
 //   const inArray = colors.includes(color)
 //   document.body.style.background = inArray ? color : 'red'
 //   if (!inArray) {
@@ -351,21 +353,87 @@ const nar = function (array) {
 
 // findTheColor(colors, 'lime')
 
-
-
-
-
 const vehicles = [
-  { make: 'Honda', model: 'CR-V', type: 'suv', amount: 14, price: 24045, onSale: true },
-  { make: 'Honda', model: 'Accord', type: 'sedan', amount: 2, price: 22455, onSale: true },
-  { make: 'Mazda', model: 'Mazda 6', type: 'sedan', amount: 8, price: 24195, onSale: false },
-  { make: 'Mazda', model: 'CX-9', type: 'suv', amount: 7, price: 31520, onSale: true },
-  { make: 'Toyota', model: '4Runner', type: 'suv', amount: 19, price: 34210, onSale: false },
-  { make: 'Toyota', model: 'Sequoia', type: 'suv', amount: 16, price: 45560, onSale: false },
-  { make: 'Toyota', model: 'Tacoma', type: 'truck', amount: 4, price: 24320, onSale: true },
-  { make: 'Ford', model: 'F-150', type: 'truck', amount: 11, price: 27110, onSale: true },
-  { make: 'Ford', model: 'Fusion', type: 'sedan', amount: 13, price: 22120, onSale: true },
-  { make: 'Ford', model: 'Explorer', type: 'suv', amount: 6, price: 31660, onSale: false },
+  {
+    make: "Honda",
+    model: "CR-V",
+    type: "suv",
+    amount: 14,
+    price: 24045,
+    onSale: true,
+  },
+  {
+    make: "Honda",
+    model: "Accord",
+    type: "sedan",
+    amount: 2,
+    price: 22455,
+    onSale: true,
+  },
+  {
+    make: "Mazda",
+    model: "Mazda 6",
+    type: "sedan",
+    amount: 8,
+    price: 24195,
+    onSale: false,
+  },
+  {
+    make: "Mazda",
+    model: "CX-9",
+    type: "suv",
+    amount: 7,
+    price: 31520,
+    onSale: true,
+  },
+  {
+    make: "Toyota",
+    model: "4Runner",
+    type: "suv",
+    amount: 19,
+    price: 34210,
+    onSale: false,
+  },
+  {
+    make: "Toyota",
+    model: "Sequoia",
+    type: "suv",
+    amount: 16,
+    price: 45560,
+    onSale: false,
+  },
+  {
+    make: "Toyota",
+    model: "Tacoma",
+    type: "truck",
+    amount: 4,
+    price: 24320,
+    onSale: true,
+  },
+  {
+    make: "Ford",
+    model: "F-150",
+    type: "truck",
+    amount: 11,
+    price: 27110,
+    onSale: true,
+  },
+  {
+    make: "Ford",
+    model: "Fusion",
+    type: "sedan",
+    amount: 13,
+    price: 22120,
+    onSale: true,
+  },
+  {
+    make: "Ford",
+    model: "Explorer",
+    type: "suv",
+    amount: 6,
+    price: 31660,
+    onSale: false,
+  },
 ];
 
 //1.Реализовать фильтер по свойству amount и получить
@@ -375,7 +443,7 @@ const vehicles = [
 //   // console.log(amountThreshold)
 
 //   const filteredCars = vehicles.filter((car) => {
-//     return car.amount > amountThreshold 
+//     return car.amount > amountThreshold
 //   })
 //   // console.log(filteredCars)
 
@@ -385,15 +453,32 @@ const vehicles = [
 // return modelName
 // }
 
-const getAvailableCarNames =  function (cars, amountThreshold) {
-  // console.log(cars)
-  // console.log(amountThreshold)
+// const getAvailableCarNames =  function (cars, amountThreshold) {
+//   // console.log(cars)
+//   // console.log(amountThreshold)
 
-  return cars.filter((car) => car.amount > amountThreshold).map((car) =>car.model)
-  // console.log(filteredCars)
+//   return cars.filter((car) => car.amount > amountThreshold).map((car) =>car.model)
+//   // console.log(filteredCars)
 
-}
+// }
 
+// console.log(getAvailableCarNames(vehicles, 10))
 
-console.log(getAvailableCarNames(vehicles, 10))
+const getAvailableCarNames = function (cars, amountThreshold) {
+  // return cars.reduce((acc, car) => {
+  //   if (car.amount > amountThreshold) {
+  //     acc.push(car.model);
+  //   }
+  //   return acc;
+  // }, []);
 
+  return cars.reduce((acc, car) => {
+    console.log(acc);
+    if (car.amount > amountThreshold) {
+      return [...acc, car.model];
+    }
+    return acc;
+  }, []);
+};
+
+console.log(getAvailableCarNames(vehicles, 10));
