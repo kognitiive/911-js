@@ -333,20 +333,67 @@ const nar = function (array) {
 //и устанавливает цвет документа красный
 // document.body.style.background = 'red';
 
-const colors = ['blue', 'yellow', 'olive', 'fuchsia', 'lime', 'aqua', 'maroon']
+// const colors = ['blue', 'yellow', 'olive', 'fuchsia', 'lime', 'aqua', 'maroon']
 
-function findTheColor(colors, color) {
-  // if (colors.includes(color)) {
-  //   document.body.style.background = color
-  // } else {
-  //   document.body.style.background = 'red'
-  // console.error('Такой цвет не найден')}
+// function findTheColor(colors, color) {
+//   // if (colors.includes(color)) {
+//   //   document.body.style.background = color
+//   // } else {
+//   //   document.body.style.background = 'red'
+//   // console.error('Такой цвет не найден')}
   
-  const inArray = colors.includes(color)
-  document.body.style.background = inArray ? color : 'red'
-  if (!inArray) {
-    console.error('Такой цвет не найден')
-  }
+//   const inArray = colors.includes(color)
+//   document.body.style.background = inArray ? color : 'red'
+//   if (!inArray) {
+//     console.error('Такой цвет не найден')
+//   }
+// }
+
+// findTheColor(colors, 'lime')
+
+
+
+
+
+const vehicles = [
+  { make: 'Honda', model: 'CR-V', type: 'suv', amount: 14, price: 24045, onSale: true },
+  { make: 'Honda', model: 'Accord', type: 'sedan', amount: 2, price: 22455, onSale: true },
+  { make: 'Mazda', model: 'Mazda 6', type: 'sedan', amount: 8, price: 24195, onSale: false },
+  { make: 'Mazda', model: 'CX-9', type: 'suv', amount: 7, price: 31520, onSale: true },
+  { make: 'Toyota', model: '4Runner', type: 'suv', amount: 19, price: 34210, onSale: false },
+  { make: 'Toyota', model: 'Sequoia', type: 'suv', amount: 16, price: 45560, onSale: false },
+  { make: 'Toyota', model: 'Tacoma', type: 'truck', amount: 4, price: 24320, onSale: true },
+  { make: 'Ford', model: 'F-150', type: 'truck', amount: 11, price: 27110, onSale: true },
+  { make: 'Ford', model: 'Fusion', type: 'sedan', amount: 13, price: 22120, onSale: true },
+  { make: 'Ford', model: 'Explorer', type: 'suv', amount: 6, price: 31660, onSale: false },
+];
+
+//1.Реализовать фильтер по свойству amount и получить
+//только название модели
+// const getAvailableCarNames =  function (cars, amountThreshold) {
+//   // console.log(cars)
+//   // console.log(amountThreshold)
+
+//   const filteredCars = vehicles.filter((car) => {
+//     return car.amount > amountThreshold 
+//   })
+//   // console.log(filteredCars)
+
+//   const modelName = filteredCars.map((car) => {
+//     return car.model
+//   })
+// return modelName
+// }
+
+const getAvailableCarNames =  function (cars, amountThreshold) {
+  // console.log(cars)
+  // console.log(amountThreshold)
+
+  return cars.filter((car) => car.amount > amountThreshold).map((car) =>car.model)
+  // console.log(filteredCars)
+
 }
 
-findTheColor(colors, 'lime')
+
+console.log(getAvailableCarNames(vehicles, 10))
+
