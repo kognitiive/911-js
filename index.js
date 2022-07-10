@@ -648,36 +648,60 @@
 //   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 // }
 
-const li = document.querySelectorAll('.key__item')
+// const li = document.querySelectorAll('.key__item')
 
 
-li.forEach(item => { item.addEventListener('transitionend', removePlaying)})
+// li.forEach(item => { item.addEventListener('transitionend', removePlaying)})
 
-function removePlaying(event) {
-    if(event.propertyName !== 'transform') return
-    this.classList.remove('playing')
-}
+// function removePlaying(event) {
+//     if(event.propertyName !== 'transform') return
+//     this.classList.remove('playing')
+// }
 
-document.addEventListener('keydown', handlePressBnt)
+// document.addEventListener('keydown', handlePressBnt)
 
-function handlePressBnt(event) {
-    console.log(event.keyCode)
-  playingSound(event.keyCode)
-    const li = document.querySelector(`li[data-key='${event.keyCode}']`)
-    li.classList.add('playing')
+// function handlePressBnt(event) {
+//     console.log(event.keyCode)
+//   playingSound(event.keyCode)
+//     const li = document.querySelector(`li[data-key='${event.keyCode}']`)
+//     li.classList.add('playing')
 
-}
+// }
 
-li.forEach(item => {item.addEventListener('click', handleClick) })
-function handleClick(event) {
-    console.log(event.target)
-   event.currentTarget.classList.add('playing')
-    playingSound(event.currentTarget.dataset.key)
-}
+// li.forEach(item => {item.addEventListener('click', handleClick) })
+// function handleClick(event) {
+//     console.log(event.target)
+//    event.currentTarget.classList.add('playing')
+//     playingSound(event.currentTarget.dataset.key)
+// }
 
-function playingSound(key) {
-     const audio = document.querySelector(`audio[data-key='${key}']`)
-    if (!audio) return
-     audio.currentTime = 0;
-    audio.play()
+// function playingSound(key) {
+//      const audio = document.querySelector(`audio[data-key='${key}']`)
+//     if (!audio) return
+//      audio.currentTime = 0;
+//     audio.play()
+// }
+
+const calendaeEl = document.querySelector('.calendar')
+calendaeEl.addEventListener('click', handleClick)
+
+function handleClick (event) {
+  
+  if(event.target.nodeName !== 'TD') {
+    return
+  }
+  console.log(event.target.nodeName)
+
+  const isActive = calendaeEl.querySelector('.active')
+  if(isActive === event.target) {
+    isActive.classList.remove('active') 
+    return
+  }
+  
+  if(isActive) {
+    isActive.classList.remove('active') 
+  }
+ 
+  event.target.classList.toggle('active')
+  
 }
