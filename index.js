@@ -571,35 +571,79 @@
 //Для выполнения задания используйте createElement
 
 
-const listRef = document.createElement('ol');
-const inputRef = document.createElement('input')
-const buttonAdd = document.createElement('button')
-buttonAdd.textContent = 'Add'
-const buttonRemove = document.createElement('button')
-buttonRemove.textContent = 'Remove'
+// const listRef = document.createElement('ol');
+// const inputRef = document.createElement('input')
+// const buttonAdd = document.createElement('button')
+// buttonAdd.textContent = 'Add'
+// const buttonRemove = document.createElement('button')
+// buttonRemove.textContent = 'Remove'
 
-document.body.append(listRef, inputRef, buttonAdd, buttonRemove)
+// document.body.append(listRef, inputRef, buttonAdd, buttonRemove)
 
-buttonAdd.addEventListener('click', addListElement)
-function addListElement() { 
-  if (inputRef.value === '') return
-  const textListElem = inputRef.value
-  const elemList = document.createElement('li')
-  elemList.textContent = textListElem
+// buttonAdd.addEventListener('click', addListElement)
+// function addListElement() { 
+//   if (inputRef.value === '') return
+//   const textListElem = inputRef.value
+//   const elemList = document.createElement('li')
+//   elemList.textContent = textListElem
 
-  const isOdd = listRef.children.length % 2 === 0;
-  elemList.style.background = isOdd ? 'red' : 'blue';
+//   const isOdd = listRef.children.length % 2 === 0;
+//   elemList.style.background = isOdd ? 'red' : 'blue';
 
 
   
-  listRef.append(elemList)
-  inputRef.value = '';
+//   listRef.append(elemList)
+//   inputRef.value = '';
+// }
+
+// buttonRemove.addEventListener('click', removeListElement)
+
+// function removeListElement() { 
+//   const lastListElem = listRef.lastChild;
+//   if(!lastListElem) return
+//   lastListElem.remove()
+// }
+
+
+//Создать небольшую игру:(
+// - Изначально на экране пользователя будет отображаться
+//какая - то форма (круг, квадрат, прямоулольник)
+// - При нажатии на нее в рандомном порядке форма должна
+//меняться на другую
+// - Форма каждый раз должна появляться в разных местах на странице
+// - Цвет формы в рандомном порядке меняется,
+
+const randomither = max => {
+  return Math.floor(Math.random() * max);
+};
+
+const forms = [
+  'width: 100px; height: 100px; border-width: 1px; border-color: #000000',
+  'width: 100px; height: 100px; border-radius: 50%; border-width: 1px; border-color: #000000',
+  'width: 150px; height: 100px; border-width: 1px; border-color: #000000',
+  'width: 200px; height: 100px; border-radius: 100px / 50px;',
+  'width: 150px; height: 100px; transform: skew(20deg);',
+];
+
+const elem = document.createElement('div')
+// elem.style.cssText = forms[0];
+// elem.style.background = getRandomHexColor();
+document.body.append(elem);
+
+const handleElemClick = () => {
+  const index = randomither (forms.length)
+  elem.style.cssText = forms[index];
+  elem.style.background = getRandomHexColor();
+  elem.style.position = "absolute"
+  elem.style.top = `${randomither(100)}%`
+  elem.style.left = `${randomither(100)}%`
 }
+handleElemClick()
+elem.addEventListener('click', handleElemClick)
 
-buttonRemove.addEventListener('click', removeListElement)
 
-function removeListElement() { 
-  const lastListElem = listRef.lastChild;
-  if(!lastListElem) return
-  lastListElem.remove()
+
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
