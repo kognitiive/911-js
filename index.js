@@ -662,15 +662,22 @@ document.addEventListener('keydown', handlePressBnt)
 
 function handlePressBnt(event) {
     console.log(event.keyCode)
-
-    const audio = document.querySelector(`audio[data-key='${event.keyCode}']`)
-    console.log(audio)
-    if (!audio) return
-    
+  playingSound(event.keyCode)
     const li = document.querySelector(`li[data-key='${event.keyCode}']`)
-
     li.classList.add('playing')
 
-    audio.currentTime = 0;
+}
+
+li.forEach(item => {item.addEventListener('click', handleClick) })
+function handleClick(event) {
+    console.log(event.target)
+   event.currentTarget.classList.add('playing')
+    playingSound(event.currentTarget.dataset.key)
+}
+
+function playingSound(key) {
+     const audio = document.querySelector(`audio[data-key='${key}']`)
+    if (!audio) return
+     audio.currentTime = 0;
     audio.play()
 }
