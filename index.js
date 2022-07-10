@@ -613,37 +613,64 @@
 // - Форма каждый раз должна появляться в разных местах на странице
 // - Цвет формы в рандомном порядке меняется,
 
-const randomither = max => {
-  return Math.floor(Math.random() * max);
-};
+// const randomither = max => {
+//   return Math.floor(Math.random() * max);
+// };
 
-const forms = [
-  'width: 100px; height: 100px; border-width: 1px; border-color: #000000',
-  'width: 100px; height: 100px; border-radius: 50%; border-width: 1px; border-color: #000000',
-  'width: 150px; height: 100px; border-width: 1px; border-color: #000000',
-  'width: 200px; height: 100px; border-radius: 100px / 50px;',
-  'width: 150px; height: 100px; transform: skew(20deg);',
-];
+// const forms = [
+//   'width: 100px; height: 100px; border-width: 1px; border-color: #000000',
+//   'width: 100px; height: 100px; border-radius: 50%; border-width: 1px; border-color: #000000',
+//   'width: 150px; height: 100px; border-width: 1px; border-color: #000000',
+//   'width: 200px; height: 100px; border-radius: 100px / 50px;',
+//   'width: 150px; height: 100px; transform: skew(20deg);',
+// ];
 
-const elem = document.createElement('div')
-// elem.style.cssText = forms[0];
-// elem.style.background = getRandomHexColor();
-document.body.append(elem);
+// const elem = document.createElement('div')
+// // elem.style.cssText = forms[0];
+// // elem.style.background = getRandomHexColor();
+// document.body.append(elem);
 
-const handleElemClick = () => {
-  const index = randomither (forms.length)
-  elem.style.cssText = forms[index];
-  elem.style.background = getRandomHexColor();
-  elem.style.position = "absolute"
-  elem.style.top = `${randomither(100)}%`
-  elem.style.left = `${randomither(100)}%`
+// const handleElemClick = () => {
+//   const index = randomither (forms.length)
+//   elem.style.cssText = forms[index];
+//   elem.style.background = getRandomHexColor();
+//   elem.style.position = "absolute"
+//   elem.style.top = `${randomither(100)}%`
+//   elem.style.left = `${randomither(100)}%`
+// }
+// handleElemClick()
+// elem.addEventListener('click', handleElemClick)
+
+
+
+
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+
+const li = document.querySelectorAll('.key__item')
+
+
+li.forEach(item => { item.addEventListener('transitionend', removePlaying)})
+
+function removePlaying(event) {
+    if(event.propertyName !== 'transform') return
+    this.classList.remove('playing')
 }
-handleElemClick()
-elem.addEventListener('click', handleElemClick)
 
+document.addEventListener('keydown', handlePressBnt)
 
+function handlePressBnt(event) {
+    console.log(event.keyCode)
 
+    const audio = document.querySelector(`audio[data-key='${event.keyCode}']`)
+    console.log(audio)
+    if (!audio) return
+    
+    const li = document.querySelector(`li[data-key='${event.keyCode}']`)
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    li.classList.add('playing')
+
+    audio.currentTime = 0;
+    audio.play()
 }
