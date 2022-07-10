@@ -521,45 +521,85 @@
 // Собрать в allTopics массив всех предметов всех курсов
 //Выполнить фильтрацию, оставив в uniqueTopics только уникальные элементы
 
-const courses = [
-  {
-    name: 'Basic HTML+CSS',
-    topics: ['VSCode', 'HTML', 'CSS', 'GitHub', 'GitHub Desctop'],
-  },
-  {
-    name: 'Intermediate HTML+CSS',
-    topics: ['VSCode', 'HTML', 'CSS', 'GitHub', 'Git', 'Terminal'],
-  },
-  {
-    name: 'Basic JavaScript',
-    topics: [
-      'VSCode',
-      'Type system',
-      'Loops',
-      'Function',
-      'Git',
-      'Conditions',
-      'Classes',
-      'GitHub',
-      'DOM',
-    ],
-  },
-  {
-    name: 'Intermediate JavaScript',
-    topics: ['VSCode', 'NPM', 'Bundlers', 'Transpiling', 'Git', 'Promises', 'AJAX', 'GitHub'],
-  },
-];
+// const courses = [
+//   {
+//     name: 'Basic HTML+CSS',
+//     topics: ['VSCode', 'HTML', 'CSS', 'GitHub', 'GitHub Desctop'],
+//   },
+//   {
+//     name: 'Intermediate HTML+CSS',
+//     topics: ['VSCode', 'HTML', 'CSS', 'GitHub', 'Git', 'Terminal'],
+//   },
+//   {
+//     name: 'Basic JavaScript',
+//     topics: [
+//       'VSCode',
+//       'Type system',
+//       'Loops',
+//       'Function',
+//       'Git',
+//       'Conditions',
+//       'Classes',
+//       'GitHub',
+//       'DOM',
+//     ],
+//   },
+//   {
+//     name: 'Intermediate JavaScript',
+//     topics: ['VSCode', 'NPM', 'Bundlers', 'Transpiling', 'Git', 'Promises', 'AJAX', 'GitHub'],
+//   },
+// ];
 
 // const allTopics = (courses) => {
 //   return courses.flatMap(course => course.topics).filter((course, index, array) => array.indexOf(course) === index)
 // }
 
 
-const allTopics = (courses) => { 
-  return courses.reduce((acc, course) => {
-return [...acc, ...course.topics]
-  }, []).filter((course, index, array) => array.indexOf(course) === index)
+// const allTopics = (courses) => {
+//   return courses.reduce((acc, course) => {
+// return [...acc, ...course.topics]
+//   }, []).filter((course, index, array) => array.indexOf(course) === index)
   
+// }
+
+// console.log(allTopics(courses))
+
+//Создать маркированный список.
+//Создать кнопки "Add" "Remove", которые будут менять состав списка
+//Создать input с которого будем получать значение, которое будет в li
+//* Четным li указать красный фон, нечетным -- синим
+//Для выполнения задания используйте createElement
+
+
+const listRef = document.createElement('ol');
+const inputRef = document.createElement('input')
+const buttonAdd = document.createElement('button')
+buttonAdd.textContent = 'Add'
+const buttonRemove = document.createElement('button')
+buttonRemove.textContent = 'Remove'
+
+document.body.append(listRef, inputRef, buttonAdd, buttonRemove)
+
+buttonAdd.addEventListener('click', addListElement)
+function addListElement() { 
+  if (inputRef.value === '') return
+  const textListElem = inputRef.value
+  const elemList = document.createElement('li')
+  elemList.textContent = textListElem
+
+  const isOdd = listRef.children.length % 2 === 0;
+  elemList.style.background = isOdd ? 'red' : 'blue';
+
+
+  
+  listRef.append(elemList)
+  inputRef.value = '';
 }
 
-console.log(allTopics(courses))
+buttonRemove.addEventListener('click', removeListElement)
+
+function removeListElement() { 
+  const lastListElem = listRef.lastChild;
+  if(!lastListElem) return
+  lastListElem.remove()
+}
